@@ -1,15 +1,19 @@
 from microbit import *
+import radio          
+
+radio.on()            
+radio.config(group=23)  
 
 DISTANCE = 50  # meters
 
 # real_val comes from the stopwatch
-# time_sec = real_value1   
+# time_sec = real_value
 time_sec = 7.9
 
 if time_sec > 0:
-    speed_mps1 = DISTANCE / time_sec        # meters per second
-    speed_kmh1 = speed_mps1 * 3.6             # convert to km/h
+    speed_mps1 = DISTANCE / time_sec   # meters per second
 
-    display.scroll(str(round(speed_kmh1, 1)) + " kmh")
+    radio.send(str(speed_mps1))        
+
 else:
     display.scroll("ERR")
