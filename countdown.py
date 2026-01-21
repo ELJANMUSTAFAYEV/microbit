@@ -22,7 +22,8 @@ def StartCountdown():
 
 while True:
     incoming = radio.receive()
-    if incoming == 'TEST':
+    if incoming == 'StartCountdown':
         StartCountdown()
+        radio.send('RunnersStart')
         
         
