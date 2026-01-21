@@ -6,6 +6,6 @@ while True:
         start_time = running_time()
     if incoming == 'End1':
         elapsed_ms = running_time() - start_time
-        Final_time=(elapsed_ms // 1000)
+        Final_time1=(elapsed_ms // 1000)
 
 
