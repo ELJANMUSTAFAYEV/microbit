@@ -1,0 +1,30 @@
+This is the process as I recall it, perhaps I've misunderstood something.
+
+
+The system uses four microbit roles and a PC:
+
+Starter microbit (start and refresh signal sender)
+
+Runner microbit= (countdown + timing + calculation)
+
+End microbit (finish signal sender)
+
+Server microbit (USB serial bridge to PC)
+
+PC (data parsing + visualisation)
+
+//Workflow
+
+The starter microbit sends a "START" radio message to begin the race.
+
+Each runner microbit receives "START", plays a countdown with sound, and records the start timestamp.
+
+When a runner reaches the finish, the end microbit sends an "END1" or "END2" message A, B bottons.
+
+The corresponding runner micro:bit receives its end message, records the end timestamp, and calculates total running time and average speed (distance / time)
+
+Each runner sends the time and speed to the server microbit.
+
+The server microbit forwards the result messages to the PC.
+
+The PC reads the serial data and visualises the results by scatter plot and bar chart.
